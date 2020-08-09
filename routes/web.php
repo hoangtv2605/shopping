@@ -20,3 +20,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+
+Route::prefix('categories')->group(function () {
+    Route::get('/', 'CategoryController@index')->name('categories.index');
+    Route::get('create', 'CategoryController@create')->name('categories.create');
+    Route::post('store', 'CategoryController@store')->name('categories.store');
+});
